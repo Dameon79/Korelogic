@@ -55,6 +55,11 @@ const FilterMenu = ({
     Pub: false,
   };
 
+  const defaultSwitchValues = {
+    "dog-friendly": false,
+    "vegan-options": false,
+  };
+
   const classes = getStyles();
   const [checked, toggleChecked] = useState(defaultFilterValues);
 
@@ -81,6 +86,7 @@ const FilterMenu = ({
   const resetFilters = () => {
     toggleChecked(defaultFilterValues);
     setRestaurantFilters([]);
+    setSwitchState(defaultSwitchValues);
   };
 
   return (

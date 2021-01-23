@@ -51,6 +51,26 @@ function App() {
   // Filter to only have unique values
   const uniqueFilters = [...new Set(restaurantFilterArray)];
 
+  const checkDogFriendlyToggleValues = (restaurant) => {
+    let returnValue = true;
+    if (switchState["dog-friendly"]) {
+      if (restaurant["dog-friendly"]) {
+        returnValue = true;
+      } else returnValue = false;
+    }
+    return returnValue;
+  };
+
+  const checkVeganOptionsToggleValues = (restaurant) => {
+    let returnValue = true;
+    if (switchState["vegan-options"]) {
+      if (restaurant["vegan-options"]) {
+        returnValue = true;
+      } else returnValue = false;
+    }
+    return returnValue;
+  };
+
   return (
     <div className={classes.root}>
       <FilterMenu
@@ -65,7 +85,10 @@ function App() {
           // Only render the Resaurant Cards where their cuisines include all of the selected filter values
           restaurantFilters.every((filterValue) =>
             restaurant.cuisine.includes(filterValue)
-          ) && (
+          ) &&
+          // Check if toggles have been activated
+          checkDogFriendlyToggleValues(restaurant) &&
+          checkVeganOptionsToggleValues(restaurant) && (
             <Card className={classes.restaurantCard} key={restaurant.name}>
               <Typography variant="h5">{restaurant.name}</Typography>
               <CardContent>
