@@ -61,10 +61,10 @@ function App() {
     return returnValue;
   };
 
-  const checkVeganOptionsToggleValues = (restaurant) => {
+  const checkToggleValues = (restaurant, toggleSwitch) => {
     let returnValue = true;
-    if (switchState["vegan-options"]) {
-      if (restaurant["vegan-options"]) {
+    if (switchState[toggleSwitch]) {
+      if (restaurant[toggleSwitch]) {
         returnValue = true;
       } else returnValue = false;
     }
@@ -87,8 +87,8 @@ function App() {
             restaurant.cuisine.includes(filterValue)
           ) &&
           // Check if toggles have been activated
-          checkDogFriendlyToggleValues(restaurant) &&
-          checkVeganOptionsToggleValues(restaurant) && (
+          checkToggleValues(restaurant, "dog-friendly") &&
+          checkToggleValues(restaurant, "vegan-options") && (
             <Card className={classes.restaurantCard} key={restaurant.name}>
               <Typography variant="h5">{restaurant.name}</Typography>
               <CardContent>
