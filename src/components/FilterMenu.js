@@ -55,7 +55,12 @@ const FilterMenu = ({
   const [checked, toggleChecked] = useState(defaultFilterValues);
 
   const handleChange = (event) => {
-    setRestaurantFilters([...restaurantFilters, event.target.name]);
+    const holdingArray = [...restaurantFilters];
+    holdingArray.indexOf(event.target.name) === -1
+      ? holdingArray.push(event.target.name)
+      : holdingArray.splice(holdingArray.indexOf(event.target.name), 1);
+    setRestaurantFilters([...holdingArray]);
+    console.log({ holdingArray });
   };
 
   const handleChecked = (event) => {
@@ -66,6 +71,8 @@ const FilterMenu = ({
     toggleChecked(defaultFilterValues);
     setRestaurantFilters([]);
   };
+
+  console.log({ restaurantFilters });
 
   return (
     <Card className={classes.root}>
