@@ -55,12 +55,12 @@ const FilterMenu = ({
   const [checked, toggleChecked] = useState(defaultFilterValues);
 
   const handleChange = (event) => {
+    // Check if the filter item is already in state, if it is remove it else push into state
     const holdingArray = [...restaurantFilters];
     holdingArray.indexOf(event.target.name) === -1
       ? holdingArray.push(event.target.name)
       : holdingArray.splice(holdingArray.indexOf(event.target.name), 1);
     setRestaurantFilters([...holdingArray]);
-    console.log({ holdingArray });
   };
 
   const handleChecked = (event) => {
