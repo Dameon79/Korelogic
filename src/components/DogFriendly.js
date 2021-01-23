@@ -9,7 +9,6 @@ const getStyles = makeStyles({
     alignItems: "center",
     marginBottom: "0.5rem",
   },
-
   noIcon: {
     color: "red",
   },

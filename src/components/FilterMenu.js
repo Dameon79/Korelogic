@@ -5,8 +5,10 @@ import {
   Checkbox,
   CardContent,
   FormControlLabel,
+  FormGroup,
   Typography,
   CardActions,
+  Switch,
 } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -35,6 +37,8 @@ const FilterMenu = ({
   filterList,
   setRestaurantFilters,
   restaurantFilters,
+  switchState,
+  setSwitchState,
 }) => {
   const defaultFilterValues = {
     Indian: false,
@@ -67,6 +71,13 @@ const FilterMenu = ({
     toggleChecked({ ...checked, [event.target.name]: event.target.checked });
   };
 
+  const handleSwitchChecked = (event) => {
+    setSwitchState({
+      ...switchState,
+      [event.target.name]: event.target.checked,
+    });
+  };
+
   const resetFilters = () => {
     toggleChecked(defaultFilterValues);
     setRestaurantFilters([]);
@@ -96,6 +107,22 @@ const FilterMenu = ({
         ))}
       </CardContent>
       <CardActions>
+        <div className={classes.switchContainer}>
+          <FormGroup row>
+            <FormControlLabel
+              control={<Switch name="dog-friendly" />}
+              label="Dog Friendly"
+              checked={switchState["dog-friendly"]}
+              onChange={handleSwitchChecked}
+            />
+            <FormControlLabel
+              control={<Switch name="vegan-options" />}
+              label="Vegan Options"
+              checked={switchState["vegan-options"]}
+              onChange={handleSwitchChecked}
+            />
+          </FormGroup>
+        </div>
         <Button variant="contained" onClick={resetFilters}>
           Clear Filters
         </Button>

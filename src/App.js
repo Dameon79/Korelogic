@@ -37,6 +37,10 @@ function App() {
   const classes = getStyles();
 
   const [restaurantFilters, setRestaurantFilters] = useState([]);
+  const [switchState, setSwitchState] = useState({
+    "dog-friendly": false,
+    "vegan-options": false,
+  });
   const restaurantFilterArray = [];
 
   // Get all of the cuisines available and push to holding Array
@@ -53,6 +57,8 @@ function App() {
         filterList={uniqueFilters}
         setRestaurantFilters={setRestaurantFilters}
         restaurantFilters={restaurantFilters}
+        switchState={switchState}
+        setSwitchState={setSwitchState}
       />
       {data.map((restaurant) => {
         return (
