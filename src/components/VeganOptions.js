@@ -7,7 +7,7 @@ const getStyles = makeStyles({
   root: {
     display: "flex",
     alignItems: "center",
-    marginBottom: "1rem",
+    marginBottom: "0.5rem",
   },
   noIcon: {
     color: "red",

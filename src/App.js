@@ -20,16 +20,16 @@ const getStyles = makeStyles({
     flexWrap: "wrap",
     alignContent: "start",
     justifyContent: "center",
+    overflow: "auto",
   },
   restaurantCard: {
     width: "20vw",
     margin: "0.5rem",
-    padding: "1rem",
+    padding: "0.5rem",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    maxHeight: "25vh",
   },
 });
 
