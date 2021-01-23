@@ -72,8 +72,6 @@ const FilterMenu = ({
     setRestaurantFilters([]);
   };
 
-  console.log({ restaurantFilters });
-
   return (
     <Card className={classes.root}>
       <Typography className={classes.filterHeading} variant="h5">
